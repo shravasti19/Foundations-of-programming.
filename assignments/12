@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+/**
+ * Function to find the Greatest Common Divisor using 
+ * the Euclidean Algorithm.
+ */
+int findGCD(int a, int b) {
+    while (b != 0) {
+        int remainder = a % b;
+        a = b;
+        b = remainder;
+    }
+    return a;
+}
+
+/**
+ * Function to find the Smallest Common Divisor > 1.
+ */
+int findSmallestCommonDivisor(int a, int b) {
+    // Start from 2 as we need a divisor other than 1 
+    int limit = (a < b) ? a : b;
+    for (int i = 2; i <= limit; i++) {
+        if (a % i == 0 && b % i == 0) {
+            return i;
+        }
+    }
+    return -1; // Indicates no common divisor other than 1 exists
+}
+
+int main() {
+    int num1, num2;
+
+    printf("--- GCD and Smallest Common Divisor Finder ---\n");
+    
+    // INPUT Section [cite: 7, 8]
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+
+    // Handling negative numbers by taking absolute values [cite: 11]
+    int n1 = (num1 < 0) ? -num1 : num1;
+    int n2 = (num2 < 0) ? -num2 : num2;
+
+    // Computation
+    int gcd = findGCD(n1, n2);
+    int scd = findSmallestCommonDivisor(n1, n2);
+
+    // OUTPUT Section 
+    printf("\nRESULTS:\n");
+    if (scd != -1) {
+        printf("Smallest Common Divisor (other than 1): %d\n", scd);
+    } else {
+        printf("Smallest Common Divisor: None (other than 1)\n");
+    }
+    
+    printf("Greatest Common Divisor (GCD): %d\n", gcd);
+
+    return 0;
+}
