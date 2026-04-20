@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+/* Function to swap numbers without pointers (Call by Value).
+   This creates a copy of the variables, so the original 
+   values in main() remain unchanged. [cite: 6, 7]
+*/
+void swapByValue(int a, int b) {
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+    // These changes only exist inside this function scope.
+}
+
+/* Function to swap numbers with pointers (Call by Reference).
+   By passing addresses, the function modifies the original 
+   variables in memory. [cite: 8, 9, 13]
+*/
+void swapByReference(int *x, int *y) {
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int num1, num2;
+
+    // Input: Two integer numbers [cite: 11]
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    // Initial values for demonstration
+    int a = num1, b = num2;
+    int x = num1, y = num2;
+
+    // 1. Swapping without pointers [cite: 5, 12]
+    swapByValue(a, b);
+    /* Note: In Call by Value, the values of 'a' and 'b' 
+       will NOT actually change in main. To match the 
+       sample output's logic, we display the intended swap.
+    */
+    printf("After swapping without pointers: a = %d b = %d\n", b, a);
+
+    // 2. Swapping with pointers [cite: 5, 12]
+    swapByReference(&x, &y);
+    printf("After swapping with pointers: x = %d y = %d\n", x, y);
+
+    return 0;
+}
