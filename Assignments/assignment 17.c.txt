@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <math.h>
+
+/**
+ * Problem Statement: To accept the number of terms and find the sum 
+ * of the sine series: sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ... [cite: 1, 4]
+ */
+
+// Function to calculate factorial of a number [cite: 7]
+long long factorial(int n) {
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    double x, sum = 0;
+    int n, i;
+
+    // Platform: Linux 
+    // Accepting Input [cite: 5, 8]
+    printf("Enter value of x (in radians): ");
+    scanf("%lf", &x);
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    // Loop to calculate the sum of the series up to n terms [cite: 6]
+    for (i = 0; i < n; i++) {
+        // The power of x follows: 1, 3, 5, 7... (2*i + 1)
+        int exponent = 2 * i + 1;
+        
+        // Calculate each term: (x^exponent) / exponent! [cite: 7]
+        double term = pow(x, exponent) / factorial(exponent);
+        
+        // Alternating signs: Positive for even i (0, 2..), Negative for odd i (1, 3..) [cite: 4, 11]
+        if (i % 2 == 0) {
+            sum += term;
+        } else {
+            sum -= term;
+        }
+    }
+
+    // Output the result 
+    printf("Sum of sine series = %lf\n", sum);
+
+    return 0;
+}

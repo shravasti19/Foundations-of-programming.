@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <conio.h>
+
+int main(int argc, char const *argv[])
+{
+    int number, ognumber, remainder, result = 0;
+    printf("Enter a three digit number:");
+    scanf("%d", &number);
+    ognumber = number;
+
+    while(ognumber != 0)
+    {
+        remainder = ognumber%10;
+        result = remainder*remainder*remainder;
+        ognumber /= 10;
+    }
+    if(result == number)
+    {
+        printf("The number is an armstrong number");
+    }
+    else
+    {
+        printf("The number is not an armstrong number");
+    }
+    return 0;
+}

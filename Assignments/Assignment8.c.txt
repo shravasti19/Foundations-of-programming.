@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <conio.h>
+
+int main(int argc, char const *argv[])
+{
+    int marks, Distinction, FirstDivision, SecondDivision, ThirdDivision;
+    printf("Enter the marks:");
+    scanf("%d", &marks);
+    
+    while(marks > 0 )
+    {
+        
+        if(marks >= 75 && marks >= 40)
+        {
+            printf("Congrats, you got distinction");
+            break;
+        }
+        else if(marks >= 60 && marks<75  && marks >= 40 )
+        {
+            printf("You got first division");
+            break;
+        }
+        else if(marks < 60 && marks >= 50 && marks >= 40 )
+        {
+            printf("you got second division");
+            break;
+        }
+        else if (marks < 50 && marks >= 40 )
+        {
+            printf("you got third division");
+            break;
+        }
+        else
+        {
+            printf("You are failed!");
+            break;
+        }
+    }
+    return 0;
+}

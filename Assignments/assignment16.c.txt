@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() 
+{
+    int n, i;
+    
+    printf("How many integers will you enter? ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Please enter a valid positive integer.\n");
+        return 1;
+    }
+
+    int arr[n];
+    int even[n], odd[n];
+    int eCount = 0, oCount = 0;
+
+    printf("Enter %d integers:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    
+    for(i = 0; i < n; i++) {
+        if(arr[i] % 2 == 0) {
+            even[eCount++] = arr[i];
+        } else {
+            odd[oCount++] = arr[i];
+        }
+    }
+
+    printf("\nEven numbers: ");
+    for(i = 0; i < eCount; i++) {
+        printf("%d ", even[i]); 
+    }
+
+    printf("\nOdd numbers: ");
+    for(i = 0; i < oCount; i++) {
+        printf("%d ", odd[i]); 
+    }
+
+    printf("\n");
+    return 0;
+}

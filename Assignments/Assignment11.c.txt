@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int x, a, c;
+
+    printf("Enter the number:");
+    scanf("%d", &a);
+    printf("Enter 1 for square root, Enter 2 for square of a number, Enter 3 for Cube of a number, Enter 4 for checking if the number is prime, Enter 5 for getting the factorial of a number, Enter 6 to get the prime factors of the number:");
+    scanf("%d", &x);
+    switch(x)
+    {
+        case 1:
+        c=sqrt(a);
+        break;
+
+        case 2:
+        c = a*a;
+        break;
+
+        case 3:
+        c = a*a*a;
+        break;
+
+        case 4:
+        c = a;
+        for(int i=2; i<a; i++)
+        {
+            if (a%i==0)
+            {
+                c = 0;
+                break;
+            }
+            else{
+                c = 1;
+            }
+        }
+        break;
+
+        case 5:
+        c = 1;
+        for(int i=1; i<=a; i++)
+        {
+            c = c*i;
+        }
+        break;
+        case 6:
+        printf("The prime factors of the number are:");
+        for(int i=2; i<=a; i++)
+        {
+            while (a%i==0)
+            {
+                printf("%d", i);
+                a = a/i;
+            }
+        }
+        break; 
+    }
+    printf("%d", c);
+    return 0;
+}
