@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+    int salary, HRA, TA, PT, finalSalary;
+    printf("Enter your salary:");
+    scanf("%d", &salary);
+    
+    HRA = 0.1*salary;
+    TA = 0.05*salary;
+    PT = 0.2*salary;
+    finalSalary = salary + HRA - TA - PT;
+
+    printf("The final salary is %d+%d-%d-%d=%d", salary, HRA, TA, PT, finalSalary);
+    return 0;  
+}
