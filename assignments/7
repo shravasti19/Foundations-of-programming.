@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <conio.h>
+
+[span_2](start_span)
+[span_2](end_span)
+struct student{
+    int rollno;
+    char name[50];
+    int marks[3];
+    int total;
+    float percentage;
+};
